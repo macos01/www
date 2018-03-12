@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
-
 <head>
 	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
 	<meta charset="utf-8">
@@ -11,11 +11,17 @@
 
 	<div id="contenedor">
 
+		<!-- i dont know why the session is not destroyed and the cabecera.php dont refresed -->
+		<?php
+			session_destroy();
+		?>
+
 		<?php require('layout/cabecera.php') ?>
 		<?php require('layout/sidebarIzq.php') ?>
 		<?php require('layout/sidebarDer.php') ?>
 
-		<?php session_destroy();?>
+
+
 		<div id="contenido">
 			<h1>Hasta pronto!</h1>
 		</div>

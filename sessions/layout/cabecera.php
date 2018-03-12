@@ -2,16 +2,14 @@
   <h1>Mi gran página web</h1>
   <div class="saludo">
     <?php
-	session_start();
-
-  if (!isset($_SESSION["nombre"])) {
-    echo "Usuario desconocido";
-    echo "<a href='login.php'> Login</a>";
-  }
-  else {
-      echo "Bienvenido, ".  $_SESSION["nombre"];
-      echo "<a href='logout.php'> (salir)</a>";
-  }
+    if (!isset($_SESSION["nombre"])) {
+      echo "Usuario desconocido";
+      echo "<a href='login.php'> Login</a>";
+    }
+    else {
+        echo "Bienvenido, ".  $_SESSION["nombre"];
+        echo "<a href='logout.php'> (salir)</a>";
+    }
   ?>
   </div>
 </div>

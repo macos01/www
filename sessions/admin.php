@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 
 <head>
@@ -15,8 +16,19 @@
 		<?php require('layout/sidebarDer.php') ?>
 
 		<div id="contenido">
-			<h1>Página principal</h1>
-			<p> Aqui esta el contenido del admin, solo visible para el admin. </p>
+			<?php
+			//I do not know which way is better.
+				if (isset($_SESSION["esAdmin"]) && $_SESSION["esAdmin"] == true){
+						echo "<h1>Consola de administración</h1>";
+						echo "<p> Aquí estarían todos los controles de administración </p>";
+				}
+
+				else {
+					echo "<h1>Aceso denegado!</h1>";
+					echo "<p>No tienes permisos suficientes para administrar la web. </p>";
+				}
+
+			?>
 		</div>
 
 		<?php require('layout/pie.php') ?>
