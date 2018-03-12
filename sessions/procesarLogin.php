@@ -11,8 +11,7 @@ $password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
 //isset : determina si una variable esta definida y no es null
 //empty:  determina si una variable esta vacia
 if (!isset($usuario) || empty($usuario) || !isset($password) || empty($password)) {
-	echo "<h1>ERROR</h1>";
-	echo "<p> El usuario o contraseña no son válidos </p>";
+		$_SESSION["login"] = false;
 }
 
 else {
