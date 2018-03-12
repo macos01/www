@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php session_start();
+	?>
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
@@ -11,8 +12,9 @@
 
 	<div id="contenedor">
 
-		<!-- i dont know why the session is not destroyed and the cabecera.php dont refresed -->
+		<!-- i dont know why the session is not destroyed and cabecera.php do not refreshed-->
 		<?php
+			session_unset();
 			session_destroy();
 		?>
 
