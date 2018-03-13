@@ -12,7 +12,6 @@
 
 	<div id="contenedor">
 
-		<!-- i dont know why the session is not destroyed and cabecera.php do not refreshed-->
 		<?php
 			session_unset();
 			session_destroy();
