@@ -5,7 +5,7 @@ class DataSource {
   private $dsn = "mysql:host=localhost;dbname=personal";
   private $conexion;
 
-  //PDO para cerrar la conexion con la base de datos??? , habria que "reconectar"
+  //PDO para cerrar la conexion con la base de datos??? , habria que "reconectar"??
   public function __construct(){
     try {
       $this->conexion = new PDO($this->dsn,$this->user,$this->password);
@@ -18,7 +18,7 @@ class DataSource {
   public function getData($sql,$values){
     $consulta = $this->conexion->prepare($sql);
     $consulta->execute($values);
-
+    echo $consulta->queryString;
     //PDO::FETCH_ASSOC: devuelve un array indexado por los nombres de las columnas del conjunto de resultados.
     $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
     return $resultado;

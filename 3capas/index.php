@@ -10,5 +10,5 @@
   </li>
   <li>Capa de datos: Base de datos de usuarios</li>
 </ul>
-<p><a href="pre_index.php">Enlace modelo</a></p>
+<p><a href="pre_menu.php">Enlace modelo</a></p>
 <?php require('layout/footer.php'); ?>
