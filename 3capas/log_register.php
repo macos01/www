@@ -1,20 +1,39 @@
 <?php
 require('log_daoUsuario.php');
 
-$nom_usuario = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
+$user_name = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
 $user_password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
 
-$dao = new DAOusuario();
-
-
-$usuario = $dao->searchUsuarioByName($nom_usuario);
-
-if ($usuario) {
-  echo "Se registrara un usuario con nombre $nom_usuario y contraseña $user_password";
-  $usuario = new Usuario($nom_usuario,$user_password);
-  echo "Registrando...";
+if (!isset($user_name) || empty($user_name) || !isset($user_password) || empty($user_password)) {
+	 echo "Problemas formulario";
 }
+else {
+  //se crear el dao
+  $dao = new DAOusuario();
 
+  //para comprobar si existe otro usuario
+  $user = $dao->searchUsuarioByName($user_name);
+
+  if (!$user) {
+    //no existe un usuario con ese nombre, por lo que habra que crear el usuario y meterlo en la base de datos.
+    $user = new Usuario($user_name,$user_password);
+
+
+    $id = $dao->insertUsuario($user);
+
+    if($id){
+      echo "Registro correcto";
+    }
+    else {
+      echo "Registro incorrecto";
+    }
+
+  }
+  else {
+    // notificar que existe un usuario con ese nombre y solicitar otro
+    echo "Existe un usuario ya";
+  }
+}
 
 
 ?>

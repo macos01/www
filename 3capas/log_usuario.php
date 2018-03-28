@@ -3,11 +3,11 @@ class Usuario
 {
   private $usuario_id;
   private $nombre;
-  private $contraseña;
+  private $password;
 
   public function __construct($nom, $con){
     $this->nombre = $nom;
-    $this->contraseña = $con;
+    $this->password = $con;
   }
 
   public function setNombre($nombre){
@@ -19,19 +19,19 @@ class Usuario
   }
 
   public function getNombre(){
-    return $this->Nombre;
+    return $this->nombre;
   }
 
   public function getUsuario_id(){
     return $this->$usuario_id;
   }
 
-  public function setContraseña($contraseña){
-    $this->contraseña = $contraseña;
+  public function setPassword($password){
+    $this->password = $password;
   }
 
-  public function getContraseña(){
-    return $this->contraseña;
+  public function getPassword(){
+    return $this->password;
   }
 }
  ?>

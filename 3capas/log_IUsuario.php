@@ -5,7 +5,7 @@
 interface IUsuario
 {
   //Nos trae todos los usuarios de nuestra tabla de usuarios
-  public function selectUsuario();
+  public function selectUsuarios();
   //Nos trae un registro que buscamos por id
   public function selectUsuarioById($id);
   //Busca usuario por su nombre y si existe devulve su id
