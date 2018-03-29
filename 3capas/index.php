@@ -1,7 +1,7 @@
 <?php $pageTitle = "Inicio"; ?>
 <?php require('layout/header.php'); ?>
 <h4>Ejemplo modelo de 3 capas</h4>
-  <li>Capa presentacion: Registro y login de usuario</li>
+  <li>Capa presentacion: Registro y login de usuario. Uso de sesiones</li>
   <li>Capa lógica:
     <ul>
       <li>Operaciones de la aplicacion y control de los datos de la presentación.</li>

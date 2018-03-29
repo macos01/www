@@ -1,11 +1,13 @@
+<?php session_start(); ?>
 <?php
 require('log_daoUsuario.php');
 
-$user_name = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
-$user_password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
+$user_name = $_REQUEST["username"];
+$user_password = $_REQUEST["password"];
 
 if (!isset($user_name) || empty($user_name) || !isset($user_password) || empty($user_password)) {
-	 echo "Problemas formulario";
+	 $_SESSION["login"] = false;
+	 	echo "Problemas formulario";
 }
 else {
   //se crear el dao
@@ -19,11 +21,14 @@ else {
 
   if ($user == null){
     //Notificar no exito
+		$_SESSION["login"] = false;
     echo "Login incorrecto";
   }
   else {
     //Notificar exito
-    echo "Login correcto";
+		$_SESSION["login"] = true;
+		$_SESSION["nombre"] = $user->getNombre();
+    echo "Bienvenido " . $_SESSION["nombre"] ;
   }
 }
 

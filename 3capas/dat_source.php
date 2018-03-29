@@ -18,9 +18,10 @@ class DataSource {
   public function getData($sql,$values){
     $consulta = $this->conexion->prepare($sql);
     $consulta->execute($values);
-    echo $consulta->queryString;
+    // echo $consulta->queryString;
     //PDO::FETCH_ASSOC: devuelve un array indexado por los nombres de las columnas del conjunto de resultados.
     $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+    // var_dump($resultado);
     return $resultado;
   }
 

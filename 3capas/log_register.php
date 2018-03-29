@@ -23,9 +23,11 @@ else {
 
     if($id){
       echo "Registro correcto";
+			//notificar login correcto
     }
     else {
       echo "Registro incorrecto";
+			//notificar login incorrecto
     }
 
   }
