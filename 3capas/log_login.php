@@ -21,7 +21,6 @@ else {
 
   if ($user == null){
     //Notificar no exito
-		$_SESSION["login"] = false;
     echo "Login incorrecto";
   }
   else {
