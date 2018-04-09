@@ -1,17 +1,25 @@
 <?php
 class DataSource {
+
+  private static $instancia;
   private $user = "3capas";
   private $password = "pass";
   private $dsn = "mysql:host=localhost;dbname=personal";
   private $conexion;
 
   //PDO para cerrar la conexion con la base de datos??? , habria que "reconectar"??
-  public function __construct(){
+  private function __construct(){
     try {
       $this->conexion = new PDO($this->dsn,$this->user,$this->password);
     } catch (PDOException $e) {
       echo "Error conexion base de datos: " . $e->getMessage();
     }
+  }
+  public static function getInstance(){
+    if (!self::$instancia){
+      self::$instancia =  new DataSource();
+    }
+    return self::$instancia;
   }
 
   //falta comprobar errores de la sql y values

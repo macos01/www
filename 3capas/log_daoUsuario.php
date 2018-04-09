@@ -11,7 +11,7 @@ class DAOusuario implements IUsuario
 
   //Nos trae un registro que buscamos nombre y contraseña
   public function searchUsuarioByNamePass($name,$pass){
-    $data_source = new DataSource();
+    $data_source = DataSource::getInstance();
     // echo "naaaame $name";
     // echo "passss $pass";
     $result = $data_source->getData("SELECT nombre,password FROM usuarios WHERE nombre = :nombre AND password = :password",
@@ -31,7 +31,7 @@ class DAOusuario implements IUsuario
   /*Busca usuario por nombre, si existe devuelve $result con el id, sino es un false.
   Util para unicamente comprobar si existe un usuari con el mismo nombre al register???*/
   public function searchUsuarioByName($nombre) {
-    $data_source = new DataSource();
+    $data_source = DataSource::getInstance();
     $result = $data_source->getData("SELECT id FROM usuarios WHERE nombre = :nombre",
       array(':nombre'=>$nombre));
 
@@ -41,7 +41,7 @@ class DAOusuario implements IUsuario
 
   //Inserta el Usuario en la base de datos y nos devuelve la id o 0 si error
   public function insertUsuario(Usuario $usuario){
-      $data_source = new DataSource();
+      $data_source = DataSource::getInstance();
       $result = $data_source->setData("INSERT INTO usuarios (nombre, password) VALUES (:nombre,:password)",
         array(':nombre'=>$usuario->getNombre(),':password'=>$usuario->getPassword()));
 
