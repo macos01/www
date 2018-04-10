@@ -15,6 +15,7 @@ class DataSource {
       echo "Error conexion base de datos: " . $e->getMessage();
     }
   }
+  
   public static function getInstance(){
     if (!self::$instancia){
       self::$instancia =  new DataSource();
