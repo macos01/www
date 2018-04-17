@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php
-require('log_daoUsuario.php');
+require('modules/daoUsuario.php');
 
 $user_name = $_REQUEST["username"];
 $user_password = $_REQUEST["password"];
@@ -26,8 +26,9 @@ else {
   else {
     //Notificar exito
 		$_SESSION["login"] = true;
-		$_SESSION["nombre"] = $user->getNombre();
-    echo "Bienvenido " . $_SESSION["nombre"] ;
+		$_SESSION["user_id"] = $user->getUsuario_id();
+
+		header("index.php");
   }
 }
 

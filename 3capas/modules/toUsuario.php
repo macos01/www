@@ -5,9 +5,11 @@ class Usuario
   private $nombre;
   private $password;
 
-  public function __construct($nom, $con){
+  //Constructor completo, el $id no es relevante a veces
+  public function __construct($nom, $con, $id){
     $this->nombre = $nom;
     $this->password = $con;
+	$this->usuario_id = $id;
   }
 
   public function setNombre($nombre){
@@ -15,7 +17,7 @@ class Usuario
   }
 
   public function setUsuario_id($id){
-    $this->$usuario_id = $id;
+    $this->usuario_id = $id;
   }
 
   public function getNombre(){
@@ -23,7 +25,7 @@ class Usuario
   }
 
   public function getUsuario_id(){
-    return $this->$usuario_id;
+    return $this->usuario_id;
   }
 
   public function setPassword($password){

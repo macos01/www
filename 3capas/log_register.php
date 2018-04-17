@@ -1,5 +1,5 @@
 <?php
-require('log_daoUsuario.php');
+require('modules/daoUsuario.php');
 
 $user_name = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
 $user_password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
@@ -10,14 +10,11 @@ if (!isset($user_name) || empty($user_name) || !isset($user_password) || empty($
 else {
   //se crear el dao
   $dao = new DAOusuario();
-
-  //para comprobar si existe otro usuario
-  $user = $dao->searchUsuarioByName($user_name);
+  $user = $dao->getBy("nombre",$user_name);
 
   if (!$user) {
     //no existe un usuario con ese nombre, por lo que habra que crear el usuario y meterlo en la base de datos.
     $user = new Usuario($user_name,$user_password);
-
 
     $id = $dao->insertUsuario($user);
 
