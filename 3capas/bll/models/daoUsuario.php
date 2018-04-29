@@ -11,14 +11,17 @@ class DAOusuario extends EntidadBase implements IUsuario
         parent::__construct($table);
     }
 
-  public function searchUsuarioByNamePass($name,$pass){
+  //Se podria devolver la id
+  public function searchUsuarioByNamePass(Usuario $usuario){
     $result = $this->dataSource->getData("SELECT nombre, password, id  FROM $this->table WHERE nombre = :nombre AND password = :password",
-      array(':nombre'=>$name,':password'=>$pass));
+        array(':nombre'=>$usuario->getNombre(),':password'=>$usuario->getPassword()));
+
     $user = null;
 
     if ($result){
       $user = new Usuario($result['nombre'],$result['password'],$result['id']);
     }
+
     return $user;
   }
 

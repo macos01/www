@@ -1,7 +1,7 @@
 <?php
 
-//Entidad Base que implementa metodos "genericos" para uso de BD
-class EntidadBase{
+//Entidad / Modelo Base que implementa metodos "genericos" para uso de BD
+class EntidadBase {
     protected $table; //Tabla de la base de datos
     protected $dataSource; //logica de conexion con la BD
 
@@ -9,7 +9,7 @@ class EntidadBase{
     protected function __construct($table) {
         $this->table=(string) $table;
 
-        require_once 'DataSource.php';
+        require_once('../dal/DataSource.php');
         $this->dataSource= DataSource::getInstance();
     }
 

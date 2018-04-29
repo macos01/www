@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require_once('config/config.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -12,17 +12,18 @@
 </head>
 
 <body>
-  <?php require('site/layout/header.php'); ?>
-  <?php require('site/layout/nav.php'); ?>
+  <?php require('layout/header.php'); ?>
+  <?php require('layout/nav.php');
+  ?>
   <div id="container">
     <div id="contenido">
       <h4>Pagina principal</h4>
       <p> Esta es la pagina principal </p>
       <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur aliquet quam id dui posuere blandit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Pellentesque in ipsum id orci porta dapibus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada.</p>
     </div>
-    <?php require('site/layout/sidebar-right.php') ?>
+    <?php require('layout/sidebar-right.php') ?>
   </div>
-  <?php require('site/layout/footer.php'); ?>
+  <?php require('layout/footer.php'); ?>
 </body>
 
 </html>

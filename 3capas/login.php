@@ -1,10 +1,10 @@
-<?php session_start(); ?>
+<?php require_once('config/config.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <title>
-    Registro
+    Log in
   </title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
@@ -16,11 +16,11 @@
   <?php require('layout/nav.php'); ?>
   <div id="container">
     <div id="contenido">
-      <h4>Registro</h4>
-      <form class="login_form" action="log_register.php" method="post">
-        <p><label>Nombre de usuario</label><input type="text" name="username"/></p>
-        <p><label>Contraseña</label><input type="password" name="password"/></p>
-        <button type="submit">Register</button>
+      <h4>Log in</h4>
+      <form class="login_form" action="bll/log_login.php" method="post">
+        <p><label>Nombre de usuario</label><input type="text" name="username" /></p>
+        <p><label>Contraseña</label><input type="text" name="password" /></p>
+        <button type="submit">Log in</button>
       </form>
     </div>
     <?php require('layout/sidebar-right.php') ?>

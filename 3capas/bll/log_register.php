@@ -1,5 +1,5 @@
 <?php
-require('modules/daoUsuario.php');
+require('models/daoUsuario.php');
 
 $user_name = htmlspecialchars(trim(strip_tags($_REQUEST["username"])));
 $user_password = htmlspecialchars(trim(strip_tags($_REQUEST["password"])));
