@@ -1,4 +1,5 @@
 <?php
+
 class Usuario
 {
   private $usuario_id;
@@ -6,7 +7,7 @@ class Usuario
   private $password;
 
   //Constructor completo, el $id no es relevante a veces
-  public function __construct($nom, $con, $id){
+  public function __construct($nom, $con, $id = 0){
     $this->nombre = $nom;
     $this->password = $con;
 	$this->usuario_id = $id;

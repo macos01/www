@@ -7,7 +7,7 @@ class DataSource {
 
   private function __construct(){
     try {
-		$db_cfg = require_once 'config/db.php';
+		$db_cfg = require_once('../config/db.php');
 	    $this->host=$db_cfg["host"];
 	    $this->user=$db_cfg["user"];
 	    $this->pass=$db_cfg["pass"];
@@ -37,7 +37,7 @@ class DataSource {
 	$consulta->execute($values);
 	return $consulta->fetchAll(PDO::FETCH_ASSOC);
   }
-  
+
   public function setData($sql,$values){
     $consulta = $this->conexion->prepare($sql);
     $consulta->execute($values);

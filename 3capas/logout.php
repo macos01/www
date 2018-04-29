@@ -1,7 +1,13 @@
+
+<?php require_once('config/config.php'); ?>
 <?php
-  session_start();
-  session_unset();
-  session_destroy();
+
+
+//Doble seguridad: unset + destroy
+unset($_SESSION["login"]);
+unset($_SESSION["user_id"]);
+
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,7 +17,7 @@
     Log out
   </title>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
