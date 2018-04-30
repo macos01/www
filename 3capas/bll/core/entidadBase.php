@@ -21,15 +21,9 @@ class EntidadBase {
         return $this->dataSource->getData("SELECT * FROM $this->table WHERE id = :id", array(':id'=>$id));
     }
 
-	public function getBy($column, $value){
+		public function getBy($column, $value){
         return $this->dataSource->getData("SELECT * FROM $this->table WHERE $column = :value", array(':value'=>$value));
     }
-
-
-    /*
-     * Aquí podemos montarnos un montón de métodos que nos ayuden
-     * a hacer operaciones con la base de datos (tabla) de la entidad
-     */
 
 }
 ?>

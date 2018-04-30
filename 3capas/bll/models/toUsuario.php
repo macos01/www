@@ -36,5 +36,14 @@ class Usuario
   public function getPassword(){
     return $this->password;
   }
+
+  public static function hashPassword($password){
+		return password_hash($password,PASSWORD_DEFAULT);
+	}
+
+	public function testPassword($password){
+		 return password_verify($password, $this->password);
+	}
+
 }
  ?>

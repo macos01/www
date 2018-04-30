@@ -8,28 +8,23 @@ if (!isset($user_name) || empty($user_name) || !isset($user_password) || empty($
 	 echo "Problemas formulario";
 }
 else {
-  //se crear el dao
-  $dao = new DAOusuario();
-  $user = $dao->getBy("nombre",$user_name);
+
+	$dao = new DAOusuario();
+	$user = $dao->searchUsuarioByName($user_name);
 
   if (!$user) {
-    //no existe un usuario con ese nombre, por lo que habra que crear el usuario y meterlo en la base de datos.
+
     $user = new Usuario($user_name,$user_password);
+		$user->setPassword($user->hashPassword($user->getPassword()));
 
-    $id = $dao->insertUsuario($user);
-
-    if($id){
-      echo "Registro correcto";
-			//notificar login correcto
+    if($dao->insertUsuario($user)){
+      	header("Location:../index.php");
     }
     else {
       echo "Registro incorrecto";
-			//notificar login incorrecto
     }
-
   }
   else {
-    // notificar que existe un usuario con ese nombre y solicitar otro
     echo "Existe un usuario ya";
   }
 }
